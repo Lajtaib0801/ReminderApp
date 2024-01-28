@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lajtai_Benjamin_ReminderApp.ModifyEventPage"
+             xmlns:tool="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             
+             Title="Esemény adatainak módosítása">
+    <ContentPage.Behaviors>
+        <tool:StatusBarBehavior StatusBarColor="{StaticResource Primary}"/>
+    </ContentPage.Behaviors>
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="fasolid"/>
+
+        </Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="Format" Value="yyyy.MM.dd."/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="fasolid"/>
+
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="WidthRequest" Value="300"/>
+            <Setter Property="HeightRequest" Value="40"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontFamily" Value="fasolid"/>
+
+        </Style>
+        <Style TargetType="Editor">
+            <Setter Property="WidthRequest" Value="200"/>
+            <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="fasolid"/>
+
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="WidthRequest" Value="200"/>
+            <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="fasolid"/>
+
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout Margin="10">
+        <Label Text="Név: "/>
+        <Entry x:Name="entName" Text="{Binding Name, Mode=TwoWay}" WidthRequest="200" Placeholder="Esemény neve"/>
+        <Label Text="Leírás: "/>
+        <!--<Entry x:Name="entDesc" Text="{Binding Description, Mode=TwoWay}" WidthRequest="300" Placeholder="Esemény leírása (nem kötelező)"/>-->
+        <Editor x:Name="ediDesc" Text="{Binding Description, Mode=TwoWay}" WidthRequest="300" Placeholder="Esemény leírása (nem kötelező)" HeightRequest="100"/>
+        <Label Text="Dátum: "/>
+        <DatePicker Date="{Binding Date, Mode=TwoWay}"/>
+        <Button x:Name="btnSave" Text="Módosítások mentése" Command="{Binding SaveChangesCommand}" Clicked="btnSave_Clicked"/>
+        <Button x:Name="btnCancel" Text="Mégse" Clicked="btnCancel_Clicked"/>
+    </StackLayout>
+</ContentPage>

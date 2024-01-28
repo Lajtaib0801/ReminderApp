@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lajtai_Benjamin_ReminderApp.ManageEventPage"
+             xmlns:tool="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             
+             Title="Események kezelése">
+    <ContentPage.Behaviors>
+        <tool:StatusBarBehavior StatusBarColor="{StaticResource Primary}"/>
+    </ContentPage.Behaviors>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontFamily" Value="fasolid"/>
+
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <Button x:Name="btnCreateEvent" Text="Esemény felvétele" WidthRequest="200" HorizontalOptions="End" Margin="5" Clicked="btnCreateEvent_Clicked"/>
+        <ListView x:Name="lsvEvents">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid ColumnDefinitions="1*,2*,1*,1*">
+                        <Label Text="{Binding Date, StringFormat='{0:yyyy.MM.dd.}'}"/>
+                        <Label Text="{Binding Name}" Grid.Column="1" FontAttributes="None"/>
+                        <Label Text="Módosít" Grid.Column="2" TextColor="Blue" ClassId="{Binding Id}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="GoToModifyPage"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label Text="Töröl" Grid.Column="3" TextColor="Red" ClassId="{Binding Id}" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="RemoveEvent"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    </StackLayout>
+</ContentPage>

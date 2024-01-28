@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lajtai_Benjamin_ReminderApp.CreateEventPage"
+             xmlns:tool="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             
+             Title="Esemény hozzáadása">
+    <ContentPage.Behaviors>
+        <tool:StatusBarBehavior StatusBarColor="{StaticResource Primary}"/>
+    </ContentPage.Behaviors>
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="fasolid"/>
+        </Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="Format" Value="yyyy.MM.dd."/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="WidthRequest" Value="300"/>
+            <Setter Property="FontFamily" Value="fasolid"/>
+
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="WidthRequest" Value="300"/>
+            <Setter Property="HeightRequest" Value="40"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontFamily" Value="fasolid"/>
+
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="fasolid"/>
+
+            <Setter Property="WidthRequest" Value="300"/>
+        </Style>
+        <Style TargetType="Editor">
+            <Setter Property="WidthRequest" Value="300"/>
+            <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="HeightRequest" Value="100"/>
+            <Setter Property="FontFamily" Value="fasolid"/>
+
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout Margin="10">
+        <Label Text="Esemény megnevezése:" />
+        <Entry x:Name="entEventName" Placeholder="Esemény neve"/>
+        <Label Text="Dátum:" />
+        <DatePicker x:Name="dpDate"/>
+        <Label Text="Leírás:" />
+        <Editor x:Name="ediDescription" Placeholder="Esemény leírása (nem kötelező)"/>
+        <Button x:Name="btnAddEvent" Text="Esemény hozzáadása" Clicked="btnAddEvent_Clicked"/>
+        <Button x:Name="btnCancel" Text="Mégse" Clicked="btnCancel_Clicked"/>
+    </StackLayout>
+</ContentPage>

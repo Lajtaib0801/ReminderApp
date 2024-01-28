@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lajtai_Benjamin_ReminderApp.OtherNotesPage"
+             xmlns:tool="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             Title="Egyéb jegyzetek">
+    <ContentPage.Behaviors>
+        <tool:StatusBarBehavior StatusBarColor="{StaticResource Primary}"/>
+    </ContentPage.Behaviors>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="WidthRequest" Value="350"/>
+                <Setter Property="FontFamily" Value="fasolid"/>
+
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <Button Text="Szöveg mentése" x:Name="btnSaveText" Clicked="btnSaveText_Clicked"/>
+        <Button Text="Szöveg törlése" x:Name="btnDeleteText" Clicked="btnDeleteText_Clicked"/>
+        <Editor x:Name="ediNotes" Placeholder="Egyéb jegyzetek" HeightRequest="500" IsSpellCheckEnabled="True" IsTextPredictionEnabled="True" FontFamily="fasolid">
+            <Editor.Keyboard>
+                <Keyboard x:FactoryMethod="Create">
+                    <x:Arguments>
+                        <KeyboardFlags>Suggestions,CapitalizeSentence</KeyboardFlags>
+                    </x:Arguments>
+                </Keyboard>
+            </Editor.Keyboard>
+        </Editor>
+
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cal="clr-namespace:Plugin.Maui.Calendar.Controls;assembly=Plugin.Maui.Calendar"
+             xmlns:tool="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             x:Class="Lajtai_Benjamin_ReminderApp.MainPage"
+             Title="Teendők">
+    <ContentPage.Behaviors>
+        <tool:StatusBarBehavior StatusBarColor="{StaticResource Primary}"/>
+    </ContentPage.Behaviors>
+    <cal:Calendar x:Name="calendar" Events="{Binding Events}" EventsScrollViewVisible="True" Culture="{Binding Culture}">
+        <cal:Calendar.EventTemplate>
+            <DataTemplate>
+                <VerticalStackLayout>
+                    <Label Text="{Binding Name}" FontSize="24" FontFamily="fasolid"/>
+                    <Label Text="{Binding Description}" FontFamily="fasolid"/>
+                </VerticalStackLayout>
+            </DataTemplate>
+        </cal:Calendar.EventTemplate>
+    </cal:Calendar>
+
+</ContentPage>
